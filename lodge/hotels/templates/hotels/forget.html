@@ -1,0 +1,8 @@
+<pre align="center">please enter your email id</pre>
+<form action="{% url 'mail_retrive' %}" method="POST">
+    {% csrf_token %}
+
+<h5 align="center"><input type="email" name="email" placeholder="email"></h5>
+<h5 align="center"><button type="submit">click</button></h5>
+
+</form>

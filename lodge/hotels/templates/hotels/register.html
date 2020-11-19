@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title>registration</title>
+        <style>
+            body {
+              margin: 0;
+              font-family: Arial, Helvetica, sans-serif;
+            }
+            
+            .topnav {
+              overflow: hidden;
+              background-color: black;
+            }
+            
+            .topnav a {
+              float: left;
+              color: #f2f2f2;
+              text-align: center;
+              padding: 14px 16px;
+              text-decoration: none;
+              font-size: 17px;
+            }
+            
+            .topnav a:hover {
+              background-color: #ddd;
+              color: black;
+            }
+            
+            .topnav a.active {
+              background-color: #4CAF50;
+              color: white;
+            }
+        </style>
+    </head>
+    <body bgcolor="silver">
+        <div class="topnav">
+            <a class="active" href="#home">Home</a>
+            <a href="#news">News</a>
+            <a href="#contact">Contact</a>
+            <a href="#about">About</a>
+        </div>
+        <form action="{% url 'register' %}" method="POST">
+            {% csrf_token %}
+            <table align="center">
+                <tr>
+                    <th>
+                        <h1>Please enter your details to register</h1>
+                        <pre>lastname : <input type="text" name="lastname" required></pre>
+                        <pre>firstname : <input type="text" name="firstname" required></pre>
+                        <pre>username : <input type="text" name="username" required></pre>
+                        <pre>emailid : <input type="email" name="emailid" required></pre>
+                        <pre>password : <input type="password" name="password" required></pre>
+                        <pre>re_enter : <input type="password" name="re_enter"required></pre>
+                        <pre><button type="submit">Register</button></pre>
+                        
+                    </th>
+                </tr>
+            </table>
+        </form>
+        <div>
+            {% for message in messages %}
+            <h3 align="center">{{message}}</h3>
+            {% endfor %}
+        </div>
+    </body>
+</html>
